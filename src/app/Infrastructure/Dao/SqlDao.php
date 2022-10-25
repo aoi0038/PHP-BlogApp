@@ -14,16 +14,16 @@ abstract class SqlDao
     public function __construct()
     {
         try {
-            $dbUrl = "mysql:dbname={$_ENV['DB_NAME']};";
+            $dbDsn = "mysql:dbname={$_ENV['DB_NAME']};";
 
             if ($_ENV['APP_ENV'] == 'prod') {
-                $dbUrl = $dbUrl . "unix_socket={$_ENV['DB_SOCKET_PATH']};";
+                $dbDsn = $dbDsn . "unix_socket={$_ENV['DB_SOCKET_PATH']};";
             } else {
-                $dbUrl = $dbUrl . "host={$_ENV['DB_HOST']};";
+                $dbDsn = $dbDsn . "host={$_ENV['DB_HOST']};";
             }
 
             $this->pdo = new PDO(
-                $dbUrl,
+                $dbDsn,
                 $_ENV['DB_USER'],
                 $_ENV['DB_PASSWORD']
             );
