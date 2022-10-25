@@ -19,12 +19,12 @@ abstract class SqlDao
     public function __construct()
     {
         try {
-            $dbUrl = sprintf(
+            $dbDsn = sprintf(
                 'mysql:host=%s; dbname=%s;',
                 self::DB_HOST,
                 self::DB_NAME
             );
-            $this->pdo = new PDO($dbUrl, self::DB_USER, self::DB_PASSWORD);
+            $this->pdo = new PDO($dbDsn, self::DB_USER, self::DB_PASSWORD);
         } catch (PDOException $e) {
             exit('DB接続エラー: ' . $e->getMessage());
         }
