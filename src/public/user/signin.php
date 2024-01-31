@@ -28,7 +28,7 @@ $password = $formInputs['password'] ?? '';
 <body>
 <?php require_once '../includes/header.php'; ?>
   <div class="container">
-    <h1>ログイン</h1>
+    <h1>ログイン画面</h1>
 <?php foreach ($messages as $m): ?>
     <div class="success"><?php echo $m; ?></div>
 <?php endforeach; ?>
